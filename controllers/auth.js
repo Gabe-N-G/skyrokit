@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcrypt');
+const router = express.Router();//Router changes the route of the express server, allows this to be/auth instead of normal
+const bcrypt = require('bcrypt');//hashes our passwords
 
-const User = require('../models/user.js');
+const User = require('../models/user.js');//brings in the schema
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
@@ -13,10 +13,11 @@ router.get('/sign-in', (req, res) => {
 });
 
 router.get('/sign-out', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
+  req.session.destroy(); //getting rid of local session storage
+  res.redirect('/'); //going back to home page
 });
 
+//method post +  endpoint sign-up = route
 router.post('/sign-up', async (req, res) => {
   try {
     // Check if the username is already taken
