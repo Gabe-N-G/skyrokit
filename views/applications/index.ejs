@@ -1,5 +1,4 @@
 <!-- views/applications/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +9,6 @@
 <body>
     <%- include('../partials/_navbar.ejs') %> // add your nav here
     <h1>Your Apps</h1>
+    <a href="/users/<%=user._id%>/applications/new">Add an App</a>
 </body>
 </html>
